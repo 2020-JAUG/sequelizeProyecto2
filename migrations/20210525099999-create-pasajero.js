@@ -8,6 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      naveId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Naves",
+          key: "id"
+        },
+        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
+        onUpdate: "CASCADE"
+      },
       nombre: {
         type: Sequelize.STRING
       },
