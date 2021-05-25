@@ -40,8 +40,8 @@ router.post("/", async(req, res) => {
 
 router.put("/", async(req, res) => {
     try {
-        const id = req.params.id;
-        res.json(await pasajeroController.modifyPassenger(id));
+        const body = req.body;
+        res.json(await pasajeroController.modifyPassengers(body));
 
     }catch (err) {
         return res.status(500).json({
@@ -53,8 +53,8 @@ router.put("/", async(req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const body = req.body;
-        res.json(await pasajeroController.deletePassenger(body));
+        const id = req.params.id;
+        res.json(await pasajeroController.deletePassenger(id));
 
     }catch (err) {
         return res.status(500).json({
