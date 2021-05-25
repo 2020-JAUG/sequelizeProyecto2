@@ -31,7 +31,7 @@ router.post("/", async(req, res) => {
         const body = req.body;
         res.json( await pasajeroController.newPassengers(body));
     } catch (error) {
-        return res.statu(500).json({
+        return res.status(500).json({
             message: error.message
         });
     }
