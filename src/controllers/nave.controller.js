@@ -24,15 +24,15 @@ class Maquina {
         return Nave.destroy( { where: {id: id} } );
     }
 
-    // async modifyNave(body) {
+    async modifyNave(body) {
 
-    //     return Nave.update(
-    //         //Datos que cambiamos
-    //         {edad: body.edad, especialidad: body.especialidad },
-    //         //Donde
-    //         {where: {id: body.id}}
-    //     );
-    // }
+        return Nave.update(
+            //Datos que cambiamos
+            {aforo: body.aforo },
+            //Donde
+            {where: {id: body.id}}
+        );
+    }
 }
 
 let naveController = new Maquina();
