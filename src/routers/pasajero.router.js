@@ -38,14 +38,30 @@ router.post("/", async(req, res) => {
 });
 
 
+router.put("/", async(req, res) => {
+    try {
+        const id = req.params.id;
+        res.json(await pasajeroController.modifyPassenger(id));
+
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        });
+    }
+});
 
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const body = req.body;
+        res.json(await pasajeroController.deletePassenger(body));
 
-// router.update();
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        });
+    }
+});
 
-
-
-
-// router.delete();
 
 module.exports = router;
