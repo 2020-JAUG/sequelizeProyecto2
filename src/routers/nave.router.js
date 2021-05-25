@@ -37,9 +37,19 @@ router.get("/:id", async(req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const body = req.body;
-        res.json(await naveController.deleteNave(body));
+        const id = req.params.id;
+        res.json(await naveController.deleteNave(id));
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        });
+    }
+});
 
+router.put("/", async(req, res) => {
+    try {
+        const body = req.body;
+        res.json(await naveController.modifyNave(body));
     }catch (err) {
         return res.status(500).json({
             message: err.message
