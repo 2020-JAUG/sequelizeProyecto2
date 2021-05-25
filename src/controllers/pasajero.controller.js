@@ -21,7 +21,7 @@ class Viajero {
 
     async deletePassengers(id) {
 
-        return Pasajero.destroy( { wehre: {id: id} } );
+        return Pasajero.destroy( { where: {id: id} } );
     }
 
     async modifyPassengers(body) {
@@ -32,6 +32,11 @@ class Viajero {
             //Donde
             {where: {id: body.id}}
         );
+    }
+
+    async deletePassenger(id){
+
+        return Pasajero.destroy({where: {id: id}});
     }
 }
 
