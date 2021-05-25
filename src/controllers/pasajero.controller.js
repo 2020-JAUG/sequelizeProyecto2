@@ -42,3 +42,10 @@ class Viajero {
 
 let pasajeroController = new Viajero();
 module.exports = pasajeroController;
+
+
+// if( nombre === "nombre" ) {
+//     return User.findByName(nombre);
+// } else {
+//     return ("Wrong Name!")
+// }
