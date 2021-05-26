@@ -37,7 +37,6 @@ router.post("/", async(req, res) => {
     }
 });
 
-
 router.put("/", async(req, res) => {
     try {
         const body = req.body;

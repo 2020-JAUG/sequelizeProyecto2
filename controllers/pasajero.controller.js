@@ -1,4 +1,5 @@
 const { Pasajero } = require("../models");
+const bcrypt = require("bcrypt");
 
 class Viajero {
 
@@ -15,6 +16,10 @@ class Viajero {
 
 
     async newPassengers(body) {
+
+        let password = body.password;
+        let passwordHased = bcrypt.hashSync(password, 10);
+        body.password = passwordHased;
 
         return Pasajero.create(body);
     }
