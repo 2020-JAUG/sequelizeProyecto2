@@ -8,6 +8,12 @@ class Viajero {
         return Pasajero.findAll();
     }
 
+    async namePassenger(nombre){
+        return Pasajero.findOne({
+            where: {nombre}
+        })
+    }
+
 
     async passengerId(id) {
 
