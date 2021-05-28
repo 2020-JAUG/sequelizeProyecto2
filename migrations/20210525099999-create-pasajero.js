@@ -23,6 +23,9 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
+      isAdmin: {
+        type: Sequelize.BOOLEAN
+      },
       apellido1: {
         type: Sequelize.STRING
       },
@@ -42,11 +45,11 @@ module.exports = {
         type: Sequelize.DATE
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });
