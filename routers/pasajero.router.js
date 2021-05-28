@@ -1,30 +1,30 @@
 const router = require("express").Router();
 const pasajeroController = require("../controllers/pasajero.controller");
+const authenticate = require("../middleware/authenticate");
+const admin = require("../middleware/admin");
 
 //API CRUD Pasajero
-router.get("/", async(req, res) => {
+router.get("/", admin, async(req, res) => {
     try {
         res.json( await pasajeroController.allPassengers());
     } catch (error) {
-        return res.statu(500).json({
+        return res.status(500).json({
             message: error.message
         });
     }
 });
 
 
-router.get("/:id", async(req, res) => {
+router.get("/:id", authenticate, async(req, res) => {//Authenticate es para que verifique el middleware
     try {
         const id = req.params.id;
         res.json( await pasajeroController.passengerId(id));
     } catch (error) {
-        return res.statu(500).json({
+        return res.status(500).json({
             message: error.message
         });
     }
 });
-
-
 
 router.post("/", async(req, res) => {
     try {
@@ -37,7 +37,7 @@ router.post("/", async(req, res) => {
     }
 });
 
-router.put("/", async(req, res) => {
+router.put("/", authenticate, async(req, res) => {
     try {
         const body = req.body;
         res.json(await pasajeroController.modifyPassengers(body));
@@ -50,7 +50,7 @@ router.put("/", async(req, res) => {
 });
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', admin, authenticate, async (req, res) => {
     try {
         const id = req.params.id;
         res.json(await pasajeroController.deletePassenger(id));

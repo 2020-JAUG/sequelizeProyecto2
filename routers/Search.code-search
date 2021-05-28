@@ -1,0 +1,9 @@
+# Query: passwdor
+# ContextLines: 1
+
+1 result - 1 file
+
+models/pasajero.js:
+  19      nombre: DataTypes.STRING,
+  20:     password: DataTypes.STRING,
+  21      isAdmin: DataTypes.BOOLEAN,
